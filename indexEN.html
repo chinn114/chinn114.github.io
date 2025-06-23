@@ -151,73 +151,76 @@
     <p style="color: #BDB76B;">&copy; 2025 Reigx. (Haruta, Chin, Kaun) All rights reserved.</p>
   </footer>
 
-  <script>
-    const productCard = document.querySelector('.product-card');
-    const productsSection = document.querySelector('.products');
+ <script>
+  const productCard = document.querySelector('.product-card');
+  const productsSection = document.querySelector('.products');
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    });
-
-    observer.observe(productCard);
-
-    window.addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => {
-        productsSection.classList.add('visible');
-      }, 1500);
-    });
-
-    document.getElementById('languageSwitcher').addEventListener('change', function () {
-      const selectedLang = this.value;
-      let currentPage = window.location.pathname.split("/").pop();
-
-      if (!currentPage || currentPage === "") {
-        currentPage = "indexEN.html";
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       }
-
-      const langMap = {
-        "index.html": {
-          ja: "index.html",
-          en: "indexEN.html"
-        },
-        "products.html": {
-          ja: "products.html",
-          en: "productsEN.html"
-        },
-        "aboutus.html": {
-          ja: "aboutus.html",
-          en: "aboutusEN.html"
-        },
-        "contact.html": {
-          ja: "contact.html",
-          en: "contactEN.html"
-        },
-        "indexEN.html": {
-          ja: "index.html",
-          en: "indexEN.html"
-        },
-        "productsEN.html": {
-          ja: "products.html",
-          en: "productsEN.html"
-        },
-        "aboutusEN.html": {
-          ja: "aboutus.html",
-          en: "aboutusEN.html"
-        },
-        "contactEN.html": {
-          ja: "contact.html",
-          en: "contactEN.html"
-        }
-      };
-
-      const targetPage = langMap[currentPage]?.[selectedLang] || "index.html";
-      window.location.href = targetPage;
     });
-  </script>
+  });
+
+  observer.observe(productCard);
+
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      productsSection.classList.add('visible');
+    }, 1500);
+  });
+
+  // 🌐 修复语言切换跳转问题
+  document.getElementById('languageSwitcher').addEventListener('change', function () {
+    const selectedLang = this.value;
+    let currentPage = window.location.pathname.split("/").pop();
+
+    // ✅ 如果访问的是根目录，就设置默认首页文件
+    if (!currentPage || currentPage === "") {
+      currentPage = "index.html";
+    }
+
+    // ✅ 语言对照表
+    const langMap = {
+      "index.html": {
+        ja: "index.html",
+        en: "indexEN.html"
+      },
+      "products.html": {
+        ja: "products.html",
+        en: "productsEN.html"
+      },
+      "aboutus.html": {
+        ja: "aboutus.html",
+        en: "aboutusEN.html"
+      },
+      "contact.html": {
+        ja: "contact.html",
+        en: "contactEN.html"
+      },
+      "indexEN.html": {
+        ja: "index.html",
+        en: "indexEN.html"
+      },
+      "productsEN.html": {
+        ja: "products.html",
+        en: "productsEN.html"
+      },
+      "aboutusEN.html": {
+        ja: "aboutus.html",
+        en: "aboutusEN.html"
+      },
+      "contactEN.html": {
+        ja: "contact.html",
+        en: "contactEN.html"
+      }
+    };
+
+    const targetPage = langMap[currentPage]?.[selectedLang] || "index.html";
+    window.location.href = targetPage;
+  });
+</script>
 </body>
 </html>
