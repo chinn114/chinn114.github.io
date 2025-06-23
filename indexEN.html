@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reigx パフューム</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Reigx Perfume</title>
+   <link rel="stylesheet" href="style.css" />
   <style>
     html {
       scroll-behavior: smooth;
     }
-
     header {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
+      top: 0; left: 0; width: 100%;
       background-color: rgba(0, 0, 0, 0.7);
       z-index: 1000;
       padding: 10px 0;
     }
-
     header nav {
       display: flex;
       justify-content: space-between;
@@ -28,12 +24,10 @@
       margin: 0 auto;
       padding: 0 20px;
     }
-
     .nav-center {
       display: flex;
       gap: 40px;
     }
-
     .nav-center a,
     .nav-right a {
       color: #BDB76B;
@@ -41,23 +35,19 @@
       font-size: 18px;
       font-weight: bold;
     }
-
     .nav-center a:hover,
     .nav-right a:hover {
       text-decoration: underline;
     }
-
     .nav-right {
       display: flex;
       align-items: center;
       gap: 10px;
     }
-
     .language-icon {
       font-size: 18px;
       color: #BDB76B;
     }
-
     .nav-right select {
       border: 1px solid #BDB76B;
       padding: 5px 10px;
@@ -66,46 +56,55 @@
       font-size: 16px;
       border-radius: 5px;
     }
-
     body {
       padding-top: 60px;
       background-color: #000;
+      color: #BDB76B;
+      font-family: sans-serif;
     }
-
     .hero-text {
       text-align: center;
-      color: #BDB76B;
       opacity: 0;
       transform: scale(0.8);
       animation: fadeZoomIn 1.5s ease-out forwards;
       animation-delay: 0.3s;
+      margin-top: 40px;
     }
-
     @keyframes fadeZoomIn {
       to {
         opacity: 1;
         transform: scale(1);
       }
     }
-
     .products {
       opacity: 0;
       transition: opacity 1s ease;
+      max-width: 1000px;
+      margin: 40px auto;
     }
-
     .products.visible {
       opacity: 1;
     }
-
     .product-card {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 1s ease, transform 1s ease;
+      background-color: #111;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 300px;
+      margin: 0 auto;
+      text-align: center;
     }
-
     .product-card.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #111;
+      margin-top: 60px;
     }
   </style>
 </head>
@@ -113,17 +112,16 @@
   <header>
     <nav>
       <div class="nav-center">
-        <a href="index.html">ホーム</a>
-        <a href="products.html">商品一覧</a>
-        <a href="aboutus.html">私たちについて</a>
+        <a href="indexEN.html">Home</a>
+        <a href="productsEN.html">Products</a>
+        <a href="aboutusEN.html">About Us</a>
       </div>
       <div class="nav-right">
-        <a href="contact.html">お問い合わせ</a>
-        <!-- 🌐语言切换图标 + 下拉 -->
+        <a href="contactEN.html">Contact</a>
         <span class="language-icon">🌐</span>
         <select id="languageSwitcher">
           <option value="ja">日本語</option>
-          <option value="en">English</option>
+          <option value="en" selected>English</option>
         </select>
       </div>
     </nav>
@@ -132,55 +130,62 @@
   <main>
     <section class="hero">
       <div class="hero-text">
-        <h2>あなただけの香りを、ここで。</h2>
-        <p>東洋の香り | カスタマイズ可能 | 世界に一つだけ</p>
+        <h2>Your unique fragrance, here.</h2>
+        <p>Oriental scents | Customizable | One of a kind in the world</p>
       </div>
     </section>
 
     <section class="products" id="products">
-      <h2 style="color: #BDB76B;">人気商品</h2>
+      <h2>Popular Products</h2>
       <div class="product-card">
-        <img src="香水19.jpg" alt="パフューム1" />
-        <h3 style="color: #BDB76B;"></h3>
-        <p style="color: #BDB76B;">売上一位</p>
+        <img src="香水19.jpg" alt="Perfume 1" style="width:100%; border-radius: 8px;" />
+        <h3>Best Seller</h3>
+        <p>Top quality fragrance loved worldwide.</p>
       </div>
     </section>
   </main>
 
   <footer>
-    <p style="color: #BDB76B;">&copy; 2025 Reigx.（はるた、チン、カウン） 全著作権所有</p>
+    <p>&copy; 2025 Reigx. (Haruta, Chin, Kaun) All rights reserved</p>
   </footer>
 
   <script>
-    const productCard = document.querySelector('.product-card');
-    const productsSection = document.querySelector('.products');
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    });
-
-    observer.observe(productCard);
-
+    // 动画显示
     window.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.hero-text').style.opacity = '1';
+      document.querySelector('.hero-text').style.transform = 'scale(1)';
+
       setTimeout(() => {
-        productsSection.classList.add('visible');
+        document.querySelector('.products').classList.add('visible');
+        document.querySelector('.product-card').classList.add('visible');
       }, 1500);
     });
 
-    // 语言切换跳转逻辑
+    // 语言切换逻辑
     document.getElementById('languageSwitcher').addEventListener('change', function () {
       const selectedLang = this.value;
       const currentPage = window.location.pathname.split("/").pop();
-      const baseName = currentPage.replace(/EN\.html|\.html/, '');
+
+      // 把当前页面名转小写方便判断
+      const lowerPage = currentPage.toLowerCase();
+
+      let baseName = currentPage;
+      if (lowerPage.endsWith('-en.html')) {
+        // 去除 -en.html
+        baseName = currentPage.slice(0, -8);
+      } else if (lowerPage.endsWith('en.html')) {
+        // 去除 EN.html（比如 productsEN.html）
+        baseName = currentPage.slice(0, -7);
+      } else if (lowerPage.endsWith('.html')) {
+        // 去除 .html
+        baseName = currentPage.slice(0, -5);
+      }
 
       if (selectedLang === 'en') {
+        // 根据实际文件名，拼接英文版页面名，示范大写 EN
         window.location.href = `${baseName}EN.html`;
       } else {
+        // 日语版页面名直接是 baseName.html
         window.location.href = `${baseName}.html`;
       }
     });
