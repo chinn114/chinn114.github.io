@@ -10,6 +10,13 @@
       scroll-behavior: smooth;
     }
 
+    body {
+      padding-top: 60px;
+      margin: 0;
+      background-color: #000;
+      font-family: sans-serif;
+    }
+
     header {
       position: fixed;
       top: 0;
@@ -27,11 +34,14 @@
       max-width: 1000px;
       margin: 0 auto;
       padding: 0 20px;
+      flex-wrap: wrap;
     }
 
-    .nav-center {
+    .nav-center,
+    .nav-right {
       display: flex;
-      gap: 40px;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     .nav-center a,
@@ -47,17 +57,6 @@
       text-decoration: underline;
     }
 
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .language-icon {
-      font-size: 18px;
-      color: #BDB76B;
-    }
-
     .nav-right select {
       border: 1px solid #BDB76B;
       padding: 5px 10px;
@@ -67,9 +66,9 @@
       border-radius: 5px;
     }
 
-    body {
-      padding-top: 60px;
-      background-color: #000;
+    .language-icon {
+      font-size: 18px;
+      color: #BDB76B;
     }
 
     .hero-text {
@@ -79,6 +78,7 @@
       transform: scale(0.8);
       animation: fadeZoomIn 1.5s ease-out forwards;
       animation-delay: 0.3s;
+      padding: 40px 20px;
     }
 
     @keyframes fadeZoomIn {
@@ -91,13 +91,26 @@
     .products {
       opacity: 0;
       transition: opacity 1s ease;
+      padding: 20px;
     }
 
     .products.visible {
       opacity: 1;
     }
 
+    .products h2 {
+      text-align: center;
+      color: #BDB76B;
+      margin-bottom: 30px;
+    }
+
     .product-card {
+      background-color: #111;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 10px auto;
+      max-width: 500px;
+      text-align: center;
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 1s ease, transform 1s ease;
@@ -106,6 +119,54 @@
     .product-card.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .product-card img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .product-card h3,
+    .product-card p {
+      color: #BDB76B;
+      margin: 10px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #111;
+      color: #BDB76B;
+    }
+
+    /* --- Responsive design for mobile --- */
+    @media (max-width: 768px) {
+      header nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-center,
+      .nav-right {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+
+      .hero-text h2 {
+        font-size: 1.5rem;
+      }
+
+      .hero-text p {
+        font-size: 1rem;
+      }
+
+      .product-card {
+        width: 100%;
+        max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -119,7 +180,6 @@
       </div>
       <div class="nav-right">
         <a href="contact.html">お問い合わせ</a>
-        <!-- 🌐语言切换图标 + 下拉 -->
         <span class="language-icon">🌐</span>
         <select id="languageSwitcher">
           <option value="ja">日本語</option>
@@ -138,17 +198,17 @@
     </section>
 
     <section class="products" id="products">
-      <h2 style="color: #BDB76B;">人気商品</h2>
+      <h2>人気商品</h2>
       <div class="product-card">
         <img src="香水19.jpg" alt="パフューム1" />
-        <h3 style="color: #BDB76B;"></h3>
-        <p style="color: #BDB76B;">売上一位</p>
+        <h3>パフューム1</h3>
+        <p>売上一位</p>
       </div>
     </section>
   </main>
 
   <footer>
-    <p style="color: #BDB76B;">&copy; 2025 Reigx.（はるた、チン、カウン） 全著作権所有</p>
+    <p>&copy; 2025 Reigx.（はるた、チン、カウン） 全著作権所有</p>
   </footer>
 
   <script>
@@ -172,7 +232,7 @@
       }, 1500);
     });
 
-    // 语言切换跳转逻辑
+    // Language switch logic
     document.getElementById('languageSwitcher').addEventListener('change', function () {
       const selectedLang = this.value;
       const currentPage = window.location.pathname.split("/").pop();
