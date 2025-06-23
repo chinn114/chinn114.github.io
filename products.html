@@ -5,73 +5,192 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>商品一覧 - Reigx パフューム</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding-top: 60px;
+      background-color: #000;
+      font-family: sans-serif;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      padding: 10px 0;
+    }
+
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .nav-center {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-center a,
+    .nav-right a {
+      color: #BDB76B;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .nav-center a:hover,
+    .nav-right a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .all-products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background-color: #111;
+      border: 1px solid #444;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .product-card h3,
+    .product-card p {
+      color: #BDB76B;
+    }
+
+    .product-card button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #F5F5DC;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #BDB76B;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1 style="color: #BDB76B;">商品一覧</h1>
     <nav>
-      <a href="index.html" style="color: #BDB76B;">ホーム</a>
-      <a href="products.html" style="color: #BDB76B;">商品一覧</a>
+      <div class="nav-center">
+        <a href="index.html">ホーム</a>
+        <a href="products.html">商品一覧</a>
+        <a href="aboutus.html">私たちについて</a>
+      </div>
+      <div class="nav-right">
+        <a href="contact.html">お問い合わせ</a>
+      </div>
     </nav>
   </header>
 
   <main>
+    <h1 style="color: #BDB76B;">商品一覧</h1>
     <section class="all-products">
-
       <div class="product-card">
-        <img src="香水1.jpg" alt="朝霧" />
-        <h3 style="color: #BDB76B;">朝霧（あさぎり）</h3>
-        <p style="color: #BDB76B;">ふんわりとしたフローラル系。日常使いにおすすめ。</p>
+        <img src="香水26.jpg" alt="カタナ" />
+        <h3>カタナ</h3>
+        <p>切り拓く未来へ、迷いなき一歩を。</p>
         <button>詳しく見る</button>
       </div>
 
       <div class="product-card">
-        <img src="香水2.jpg" alt="夜桜" />
-        <h3 style="color: #BDB76B;">夜桜（よざくら）</h3>
-        <p style="color: #BDB76B;">ミステリアスで上品な夜の香り。</p>
+        <img src="香水27.jpg" alt="サムライ" />
+        <h3>サムライ</h3>
+        <p>ミ真の強さとは、静かなる覚悟に宿る。</p>
         <button>詳しく見る</button>
       </div>
 
       <div class="product-card">
-        <img src="香水3.jpg" alt="夏風" />
-        <h3 style="color: #BDB76B;">夏風（なつかぜ）</h3>
-        <p style="color: #BDB76B;">爽やかでエネルギッシュな香り。</p>
+        <img src="香水28.jpg" alt="ジャパン" />
+        <h3>ジャパン</h3>
+        <p>時を超え、世界へ響く、日本の誇りと魅力。</p>
         <button>詳しく見る</button>
       </div>
 
       <div class="product-card">
-        <img src="香水4.jpg" alt="冬の月" />
-        <h3 style="color: #BDB76B;">冬の月（ふゆのつき）</h3>
-        <p style="color: #BDB76B;">静かな冬の夜をイメージした落ち着く香り。</p>
+        <img src="香水20.jpg" alt="桜" />
+        <h3>桜</h3>
+        <p>ふんわりとしたフローラル系。日常使いにおすすめ。</p>
         <button>詳しく見る</button>
       </div>
 
       <div class="product-card">
-        <img src="香水5.jpg" alt="春風" />
-        <h3 style="color: #BDB76B;">春風（はるかぜ）</h3>
-        <p style="color: #BDB76B;">軽やかでフレッシュな春の香り。</p>
+        <img src="香水21.jpg" alt="夜桜" />
+        <h3>夜桜</h3>
+        <p>ミステリアスで上品な夜の香り。</p>
         <button>詳しく見る</button>
       </div>
 
       <div class="product-card">
-        <img src="香水6.jpg" alt="夕焼け" />
-        <h3 style="color: #BDB76B;">夕焼け（ゆうやけ）</h3>
-        <p style="color: #BDB76B;">温かく穏やかな夕暮れの香り。</p>
+        <img src="香水22.jpg" alt="夏の青春" />
+        <h3>夏の青春</h3>
+        <p>爽やかでエネルギッシュな香り。</p>
+        <button>詳しく見る</button>
+      </div>
+
+      <div class="product-card">
+        <img src="香水23.jpg" alt="朝顔" />
+        <h3>朝顔</h3>
+        <p>青春のはじまりに似た、儚くも美しい一瞬を。</p>
+        <button>詳しく見る</button>
+      </div>
+
+      <div class="product-card">
+        <img src="香水24.jpg" alt="夕焼け" />
+        <h3>夕焼け</h3>
+        <p>温かく穏やかな夕暮れの香り。</p>
+        <button>詳しく見る</button>
+      </div>
+
+      <div class="product-card">
+        <img src="香水25.jpg" alt="白焰" />
+        <h3>白焰</h3>
+        <p>誰にもまねできない、内に宿る美しさを香りでまとう。</p>
         <button>詳しく見る</button>
       </div>
 
       <div class="product-card">
         <img src="香水15.jpg" alt="夜明け" />
-        <h3 style="color: #BDB76B;">夜明け（よあけ）</h3>
-        <p style="color: #BDB76B;">新しい一日の始まりを感じる爽やかな香り。</p>
+        <h3>夜明け</h3>
+        <p>新しい一日の始まりを感じる爽やかな香り。</p>
         <button>詳しく見る</button>
       </div>
-
     </section>
   </main>
 
   <footer>
-    <p style="color: #BDB76B;">&copy; 2025 Reigx パフューム</p>
+    <p>&copy; 2025 Reigx パフューム</p>
   </footer>
 </body>
 </html>

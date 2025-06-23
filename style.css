@@ -4,24 +4,12 @@ body {
 
 /* 设置背景图片 */
 body {
-  background-image: url('香水18.jpg');
+  background-image: url('香水5.jpg');
   background-size: cover;          /* 让图片覆盖整个屏幕 */
   background-position: center;     /* 图片居中 */
   background-repeat: no-repeat;    /* 不重复 */
 }
 
-
-/* 设置人气商品展示图片 */
-.product-card {
-  width: 250px;           /* 固定卡片宽度 */
-  margin: 20px auto;      /* 上下20px自动左右居中 */
-  padding: 10px;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  text-align: center;     /* 文字和图片都居中 */
-  transition: transform 0.4s ease;
-  position: relative;
-}
 
 .product-card img {
   max-width: 100%;        /* 限制图片最大宽度不超过卡片宽度 */

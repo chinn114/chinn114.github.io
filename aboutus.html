@@ -4,23 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>私たちについて - Reigx パフューム</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- 样式放外部，不在这里覆盖背景 -->
+  <link rel="stylesheet" href="aboutus.css" />
   <style>
-    body { font-family: "Noto Sans JP", sans-serif; background: #121212; color: #F5F5DC; line-height: 1.6; }
-    .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-    h1, h2 { color: #FFD700; font-weight: 700; }
-    p, li { font-weight: 500; }
-    .team { display: flex; gap: 20px; flex-wrap: wrap; margin: 40px 0; }
-    .member { flex: 1 1 250px; text-align: center; }
-    .member img { width: 100%; border-radius: 50%; margin-bottom: 10px; }
-    .cta { margin: 40px 0; text-align: center; }
-    .cta a { background: #FFD700; color: #121212; padding: 12px 30px; text-decoration: none; font-weight: 600; border-radius: 5px; }
+    /* 内联样式不要设置背景颜色，以免覆盖外部背景图 */
+    body {
+      font-family: "Noto Sans JP", sans-serif;
+      color: #F5F5DC;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>私たちについて</h1>
-    <p>私たちは、香水を身にまとうことで人々に自己肯定感の高まりや気分の向上を感じてもらい、香水を通じて日本文化だけでなく多様な文化を世界に広めたいと考えています。                                     </p>
+    <p>私たちは、香水を身にまとうことで人々に自己肯定感の高まりや気分の向上を感じてもらい、香水を通じて日本文化だけでなく多様な文化を世界に広めたいと考えています。</p>
 
     <h2>私たちのストーリー</h2>
     <p>「Reigx パフューム」は、香りが人の内面に“自信”を呼び覚ます力を信じています。</p>
@@ -44,10 +42,11 @@
       </div>
     </div>
 
-
-
     <div class="cta">
-      <a href="products.html">商品一覧を見る</a>
+      <a href="index.html" style="color: #000000;">ホーム</a>
+      <a href="products.html" style="color: #000000;">商品一覧</a>
+      <a href="aboutus.html" style="color: #000000;">私たちについて</a>
+      <a href="contact.html" style="color: #000000;">お問い合わせ</a>
     </div>
   </div>
 </body>
