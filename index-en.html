@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reigx パフューム</title>
+  <title>Reigx Perfume</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     html {
@@ -113,17 +113,16 @@
   <header>
     <nav>
       <div class="nav-center">
-        <a href="index.html">ホーム</a>
-        <a href="products.html">商品一覧</a>
-        <a href="aboutus.html">私たちについて</a>
+        <a href="index-en.html">Home</a>
+        <a href="productsEN.html">Products</a>
+        <a href="aboutusEN.html">About Us</a>
       </div>
       <div class="nav-right">
-        <a href="contact.html">お問い合わせ</a>
-        <!-- 🌐语言切换图标 + 下拉 -->
+        <a href="contactEN.html">Contact</a>
         <span class="language-icon">🌐</span>
         <select id="languageSwitcher">
           <option value="ja">日本語</option>
-          <option value="en">English</option>
+          <option value="en" selected>English</option>
         </select>
       </div>
     </nav>
@@ -132,23 +131,23 @@
   <main>
     <section class="hero">
       <div class="hero-text">
-        <h2>あなただけの香りを、ここで。</h2>
-        <p>東洋の香り | カスタマイズ可能 | 世界に一つだけ</p>
+        <h2>Your unique fragrance, here.</h2>
+        <p>Oriental scents | Customizable | One of a kind in the world</p>
       </div>
     </section>
 
     <section class="products" id="products">
-      <h2 style="color: #BDB76B;">人気商品</h2>
+      <h2 style="color: #BDB76B;">Popular Products</h2>
       <div class="product-card">
-        <img src="香水19.jpg" alt="パフューム1" />
+        <img src="香水19.jpg" alt="Perfume 1" />
         <h3 style="color: #BDB76B;"></h3>
-        <p style="color: #BDB76B;">売上一位</p>
+        <p style="color: #BDB76B;">Best Seller</p>
       </div>
     </section>
   </main>
 
   <footer>
-    <p style="color: #BDB76B;">&copy; 2025 Reigx.（はるた、チン、カウン） 全著作権所有</p>
+    <p style="color: #BDB76B;">&copy; 2025 Reigx. (Haruta, Chin, Kaun) All rights reserved</p>
   </footer>
 
   <script>
@@ -172,7 +171,7 @@
       }, 1500);
     });
 
-    // 语言切换跳转逻辑
+    // Language switcher redirect logic
     document.getElementById('languageSwitcher').addEventListener('change', function () {
       const selectedLang = this.value;
       const currentPage = window.location.pathname.split("/").pop();

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>私たちについて - Reigx パフューム</title>
+  <title>About Us - Reigx Perfume</title>
   <link rel="stylesheet" href="aboutus.css" />
   <style>
     body {
       font-family: "Noto Sans JP", sans-serif;
       color: #F5F5DC;
       line-height: 1.6;
-      background-color: #000; /* 如果你想统一背景色 */
+      background-color: #000;
       margin: 0;
-      padding: 60px 20px 20px; /* 给顶部留出固定header高度 */
+      padding: 60px 20px 20px;
     }
     header {
       position: fixed;
@@ -88,52 +88,52 @@
   <header>
     <nav>
       <div class="nav-links">
-        <a href="index.html">ホーム</a>
-        <a href="products.html">商品一覧</a>
-        <a href="aboutus.html">私たちについて</a>
-        <a href="contact.html">お問い合わせ</a>
+        <a href="index-en.html">Home</a>
+        <a href="productsEN.html">Products</a>
+        <a href="aboutusEN.html">About Us</a>
+        <a href="contactEN.html">Contact</a>
       </div>
       <div class="language-switcher">
         <span class="language-icon">🌐</span>
         <select id="languageSwitcher">
-          <option value="ja" selected>日本語</option>
-          <option value="en">English</option>
+          <option value="en" selected>English</option>
+          <option value="ja">日本語</option>
         </select>
       </div>
     </nav>
   </header>
 
   <div class="container">
-    <h1>私たちについて</h1>
-    <p>私たちは、香水を身にまとうことで人々に自己肯定感の高まりや気分の向上を感じてもらい、香水を通じて日本文化だけでなく多様な文化を世界に広めたいと考えています。</p>
+    <h1>About Us</h1>
+    <p>We believe that wearing perfume can boost people's self-confidence and uplift their mood. Through our scents, we aim to spread not only Japanese culture but also diverse cultures around the world.</p>
 
-    <h2>私たちのストーリー</h2>
-    <p>「Reigx パフューム」は、香りが人の内面に“自信”を呼び覚ます力を信じています。</p>
+    <h2>Our Story</h2>
+    <p>At "Reigx Perfume," we trust in the power of fragrance to awaken confidence within one's inner self.</p>
 
-    <h2>コアバリュー</h2>
+    <h2>Core Values</h2>
     <ul>
-      <li>⭑ クラフトマンシップ：一つひとつ手作業で丁寧に。</li>
-      <li>⭑ サステナビリティ：環境に配慮した原料と包装。</li>
-      <li>⭑ パーソナライゼーション：香りはお客様ごとに唯一無二。</li>
+      <li>⭑ Craftsmanship: Each piece carefully handcrafted.</li>
+      <li>⭑ Sustainability: Environmentally conscious ingredients and packaging.</li>
+      <li>⭑ Personalization: Every scent is unique to each customer.</li>
     </ul>
 
-    <h2>チーム紹介</h2>
+    <h2>Meet the Team</h2>
     <div class="team">
       <div class="member">
-        <h3>佐々木悠太（創業者／調香師）</h3>
-        <p>香りの記憶をテーマに香水を創造。</p>
+        <h3>Yuta Sasaki (Founder / Perfumer)</h3>
+        <p>Creates perfumes inspired by memories of scent.</p>
       </div>
       <div class="member">
-        <h3>チンテル　カウンザー二ヘイン（お客様サポート）</h3>
-        <p>香りの相談にのる専門スタッフ。</p>
+        <h3>Chintel Counzer Nehein (Customer Support)</h3>
+        <p>Specialized staff who provide fragrance consultations.</p>
       </div>
     </div>
 
     <div class="cta">
-      <a href="index.html">ホーム</a>
-      <a href="products.html">商品一覧</a>
-      <a href="aboutus.html">私たちについて</a>
-      <a href="contact.html">お問い合わせ</a>
+      <a href="index-en.html">Home</a>
+      <a href="productsEN.html">Products</a>
+      <a href="aboutusEN.html">About Us</a>
+      <a href="contactEN.html">Contact</a>
     </div>
   </div>
 
@@ -143,10 +143,10 @@
       const currentPage = window.location.pathname.split("/").pop();
       const baseName = currentPage.replace(/EN\.html|\.html/, '');
 
-      if (selectedLang === 'en') {
-        window.location.href = `${baseName}EN.html`;
-      } else {
+      if (selectedLang === 'ja') {
         window.location.href = `${baseName}.html`;
+      } else {
+        window.location.href = `${baseName}EN.html`;
       }
     });
   </script>

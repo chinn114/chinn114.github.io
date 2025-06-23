@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>お問い合わせ - Reigx パフューム</title>
+  <title>Contact Us - Reigx Perfume</title>
   <style>
     html {
       scroll-behavior: smooth;
@@ -11,11 +11,11 @@
     }
     body {
       margin: 0;
-      padding-top: 60px; /* 防止内容被固定导航栏遮住 */
+      padding-top: 60px; /* Prevent content hidden behind fixed header */
       font-family: sans-serif;
       color: #D3D3D3;
     }
-    /* 固定导航栏 */
+    /* Fixed header */
     header {
       position: fixed;
       top: 0;
@@ -97,64 +97,65 @@
 <body>
   <header>
     <nav>
-      <a href="index.html">ホーム</a>
-      <a href="products.html">商品一覧</a>
-      <a href="aboutus.html">私たちについて</a>
-      <a href="contact.html">お問い合わせ</a>
+      <a href="index-en.html">Home</a>
+      <a href="productsEN.html">Products</a>
+      <a href="aboutusEN.html">About Us</a>
+      <a href="contactEN.html">Contact</a>
     </nav>
     <div class="language-switcher">
       <span class="language-icon">🌐</span>
       <select id="languageSwitcher">
-        <option value="ja" selected>日本語</option>
-        <option value="en">English</option>
+        <option value="en" selected>English</option>
+        <option value="ja">日本語</option>
       </select>
     </div>
   </header>
 
   <main>
-    <h1>お問い合わせ</h1>
+    <h1>Contact Us</h1>
 
     <section class="store-info">
-      <h2>線下门店のご案内</h2>
-      <p>Reigx パフュームでは、実店舗にてお客様一人ひとりに合った香りのカスタマイズ体験をご提供しています。専門スタッフが丁寧にサポートし、世界に一つだけの香水を一緒に作りましょう。</p>
+      <h2>Offline Store Information</h2>
+      <p>At Reigx Perfume, we offer personalized scent customization experiences in our physical stores. Our expert staff will carefully assist you to create a one-of-a-kind perfume.</p>
 
-      <h3>価格について</h3>
+      <h3>Pricing</h3>
       <ul>
-        <li>香水　オリジナル</li>
-        <li>サンプル込み　無料-15000円</li>
-        <li>期間限定品　15000-20000円</li>
-        <li>コラボ品 - 依頼者と相談</li>
-        <li>キーホルダー　1000円-5000円</li>
+        <li>Original Perfume</li>
+        <li>Including samples: Free to ¥15,000</li>
+        <li>Limited edition: ¥15,000 to ¥20,000</li>
+        <li>Collaborations: Negotiable with client</li>
+        <li>Keychains: ¥1,000 to ¥5,000</li>
       </ul>
 
-      <h3>アフターサービス</h3>
-      <p>香水の品質に万全を期しておりますが、ご購入後十五日以内の不具合や香りの調整をご希望の場合は、店舗またはお問い合わせフォームからお気軽にご連絡ください。</p>
+      <h3>After-sales Service</h3>
+      <p>We ensure the highest quality for our perfumes, but if you experience any defects or want fragrance adjustments within 15 days of purchase, please feel free to contact us via the store or the inquiry form.</p>
 
-      <h3>店舗情報</h3>
+      <h3>Store Information</h3>
       <address>
-        〒123-4567 情報経営イノベーション Reigxビル1F<br />
-        営業時間：10:00〜19:00（年中無休）<br />
-        電話番号：03-1234-5678
+        1F Reigx Building, Information Management Innovation<br />
+        123-4567 Tokyo, Japan<br />
+        Business Hours: 10:00–19:00 (Open year-round)<br />
+        Phone: 03-1234-5678
       </address>
 
-      <h3>お問い合わせフォーム</h3>
+      <h3>Inquiry Form</h3>
       <form action="#" method="POST">
-        <label for="name">お名前</label>
+        <label for="name">Name</label>
         <input type="text" id="name" name="name" required />
 
-        <label for="email">メールアドレス</label>
+        <label for="email">Email Address</label>
         <input type="email" id="email" name="email" required />
 
-        <label for="message">お問い合わせ内容</label>
+        <label for="message">Your Message</label>
         <textarea id="message" name="message" rows="5" required></textarea>
 
-        <button type="submit">送信</button>
+        <button type="submit">Send</button>
       </form>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Reigx パフューム</p>
+    <p>&copy; 2025 Reigx Perfume</p>
   </footer>
 
   <script>
@@ -163,10 +164,10 @@
       const currentPage = window.location.pathname.split("/").pop();
       const baseName = currentPage.replace(/EN\.html|\.html/, '');
 
-      if (selectedLang === 'en') {
-        window.location.href = `${baseName}EN.html`;
-      } else {
+      if (selectedLang === 'ja') {
         window.location.href = `${baseName}.html`;
+      } else {
+        window.location.href = `${baseName}EN.html`;
       }
     });
   </script>
