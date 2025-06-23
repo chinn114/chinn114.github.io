@@ -1,0 +1,166 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-top: 60px;
+  margin: 0;
+  background-color: #000;
+  font-family: sans-serif;
+}
+
+/* ===== 导航栏样式 ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.nav-center,
+.nav-right {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.nav-center a,
+.nav-right a {
+  color: #BDB76B;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.nav-center a:hover,
+.nav-right a:hover {
+  text-decoration: underline;
+}
+
+.nav-right select {
+  border: 1px solid #BDB76B;
+  padding: 5px 10px;
+  background-color: #111;
+  color: #BDB76B;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.language-icon {
+  font-size: 18px;
+  color: #BDB76B;
+}
+
+/* ===== Hero 区域 ===== */
+.hero-text {
+  text-align: center;
+  color: #BDB76B;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeZoomIn 1.5s ease-out forwards;
+  animation-delay: 0.3s;
+  padding: 40px 20px;
+}
+
+@keyframes fadeZoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== 商品展示区域 ===== */
+.products {
+  opacity: 0;
+  transition: opacity 1s ease;
+  padding: 20px;
+}
+
+.products.visible {
+  opacity: 1;
+}
+
+.products h2 {
+  text-align: center;
+  color: #BDB76B;
+  margin-bottom: 30px;
+}
+
+.product-card {
+  background-color: #111;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 10px auto;
+  max-width: 500px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.product-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.product-card img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.product-card h3,
+.product-card p {
+  color: #BDB76B;
+  margin: 10px 0;
+}
+
+/* ===== 页脚 ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #111;
+  color: #BDB76B;
+}
+
+/* ===== 响应式设计（手机） ===== */
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-center,
+  .nav-right {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .hero-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .product-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
