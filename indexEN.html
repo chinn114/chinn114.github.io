@@ -162,31 +162,15 @@
       }, 1500);
     });
 
-    // 语言切换逻辑
+  
     document.getElementById('languageSwitcher').addEventListener('change', function () {
       const selectedLang = this.value;
       const currentPage = window.location.pathname.split("/").pop();
-
-      // 把当前页面名转小写方便判断
-      const lowerPage = currentPage.toLowerCase();
-
-      let baseName = currentPage;
-      if (lowerPage.endsWith('-en.html')) {
-        // 去除 -en.html
-        baseName = currentPage.slice(0, -8);
-      } else if (lowerPage.endsWith('en.html')) {
-        // 去除 EN.html（比如 productsEN.html）
-        baseName = currentPage.slice(0, -7);
-      } else if (lowerPage.endsWith('.html')) {
-        // 去除 .html
-        baseName = currentPage.slice(0, -5);
-      }
+      const baseName = currentPage.replace(/EN\.html|\.html/, '');
 
       if (selectedLang === 'en') {
-        // 根据实际文件名，拼接英文版页面名，示范大写 EN
         window.location.href = `${baseName}EN.html`;
       } else {
-        // 日语版页面名直接是 baseName.html
         window.location.href = `${baseName}.html`;
       }
     });
