@@ -120,7 +120,6 @@
       </div>
       <div class="nav-right">
         <a href="contact.html">お問い合わせ</a>
-        <!-- 🌐语言切换图标 + 下拉 -->
         <span class="language-icon">🌐</span>
         <select id="languageSwitcher">
           <option value="ja">日本語</option>
@@ -172,16 +171,55 @@
         productsSection.classList.add('visible');
       }, 1500);
     });
+
+    // 🌐 语言切换逻辑
     document.getElementById('languageSwitcher').addEventListener('change', function () {
       const selectedLang = this.value;
-      const currentPage = window.location.pathname.split("/").pop();
-      const baseName = currentPage.replace(/EN\.html|\.html/, '');
+      let currentPage = window.location.pathname.split("/").pop();
 
-      if (selectedLang === 'en') {
-        window.location.href = `${baseName}EN.html`;
-      } else {
-        window.location.href = `${baseName}.html`;
+      // 如果没有文件名，比如访问的是根目录
+      if (!currentPage || currentPage === "") {
+        currentPage = "index.html";
       }
+
+      // 页面语言映射表
+      const langMap = {
+        "index.html": {
+          ja: "index.html",
+          en: "indexEN.html"
+        },
+        "products.html": {
+          ja: "products.html",
+          en: "productsEN.html"
+        },
+        "aboutus.html": {
+          ja: "aboutus.html",
+          en: "aboutusEN.html"
+        },
+        "contact.html": {
+          ja: "contact.html",
+          en: "contactEN.html"
+        },
+        "indexEN.html": {
+          ja: "index.html",
+          en: "indexEN.html"
+        },
+        "productsEN.html": {
+          ja: "products.html",
+          en: "productsEN.html"
+        },
+        "aboutusEN.html": {
+          ja: "aboutus.html",
+          en: "aboutusEN.html"
+        },
+        "contactEN.html": {
+          ja: "contact.html",
+          en: "contactEN.html"
+        }
+      };
+
+      const targetPage = langMap[currentPage]?.[selectedLang] || "index.html";
+      window.location.href = targetPage;
     });
   </script>
 </body>

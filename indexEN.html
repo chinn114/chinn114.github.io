@@ -4,19 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reigx Perfume</title>
-   <link rel="stylesheet" href="style.css" />
-   <link rel="stylesheet" href="SF.CSS" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="SF.CSS" />
   <style>
     html {
       scroll-behavior: smooth;
     }
+
     header {
       position: fixed;
-      top: 0; left: 0; width: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
       background-color: rgba(0, 0, 0, 0.7);
       z-index: 1000;
       padding: 10px 0;
     }
+
     header nav {
       display: flex;
       justify-content: space-between;
@@ -25,10 +29,12 @@
       margin: 0 auto;
       padding: 0 20px;
     }
+
     .nav-center {
       display: flex;
       gap: 40px;
     }
+
     .nav-center a,
     .nav-right a {
       color: #BDB76B;
@@ -36,19 +42,23 @@
       font-size: 18px;
       font-weight: bold;
     }
+
     .nav-center a:hover,
     .nav-right a:hover {
       text-decoration: underline;
     }
+
     .nav-right {
       display: flex;
       align-items: center;
       gap: 10px;
     }
+
     .language-icon {
       font-size: 18px;
       color: #BDB76B;
     }
+
     .nav-right select {
       border: 1px solid #BDB76B;
       padding: 5px 10px;
@@ -57,55 +67,46 @@
       font-size: 16px;
       border-radius: 5px;
     }
+
     body {
       padding-top: 60px;
       background-color: #000;
-      color: #BDB76B;
-      font-family: sans-serif;
     }
+
     .hero-text {
       text-align: center;
+      color: #BDB76B;
       opacity: 0;
       transform: scale(0.8);
       animation: fadeZoomIn 1.5s ease-out forwards;
       animation-delay: 0.3s;
-      margin-top: 40px;
     }
+
     @keyframes fadeZoomIn {
       to {
         opacity: 1;
         transform: scale(1);
       }
     }
+
     .products {
       opacity: 0;
       transition: opacity 1s ease;
-      max-width: 1000px;
-      margin: 40px auto;
     }
+
     .products.visible {
       opacity: 1;
     }
+
     .product-card {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 1s ease, transform 1s ease;
-      background-color: #111;
-      padding: 20px;
-      border-radius: 8px;
-      max-width: 300px;
-      margin: 0 auto;
-      text-align: center;
     }
+
     .product-card.visible {
       opacity: 1;
       transform: translateY(0);
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #111;
-      margin-top: 60px;
     }
   </style>
 </head>
@@ -131,48 +132,91 @@
   <main>
     <section class="hero">
       <div class="hero-text">
-        <h2>Your unique fragrance, here.</h2>
-        <p>Oriental scents | Customizable | One of a kind in the world</p>
+        <h2>Discover Your Unique Fragrance</h2>
+        <p>Oriental Scent | Fully Customizable | One of a Kind</p>
       </div>
     </section>
 
     <section class="products" id="products">
-      <h2>Popular Products</h2>
+      <h2 style="color: #BDB76B;">Popular Products</h2>
       <div class="product-card">
-        <img src="香水19.jpg" alt="Perfume 1" style="width:100%; border-radius: 8px;" />
-        <h3>Best Seller</h3>
-        <p>Top quality fragrance loved worldwide.</p>
+        <img src="香水19.jpg" alt="Perfume 1" />
+        <h3 style="color: #BDB76B;"></h3>
+        <p style="color: #BDB76B;">Top Seller</p>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Reigx. (Haruta, Chin, Kaun) All rights reserved</p>
+    <p style="color: #BDB76B;">&copy; 2025 Reigx. (Haruta, Chin, Kaun) All rights reserved.</p>
   </footer>
 
   <script>
-    // 动画显示
-    window.addEventListener('DOMContentLoaded', () => {
-      document.querySelector('.hero-text').style.opacity = '1';
-      document.querySelector('.hero-text').style.transform = 'scale(1)';
+    const productCard = document.querySelector('.product-card');
+    const productsSection = document.querySelector('.products');
 
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    observer.observe(productCard);
+
+    window.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
-        document.querySelector('.products').classList.add('visible');
-        document.querySelector('.product-card').classList.add('visible');
+        productsSection.classList.add('visible');
       }, 1500);
     });
 
-  
     document.getElementById('languageSwitcher').addEventListener('change', function () {
       const selectedLang = this.value;
-      const currentPage = window.location.pathname.split("/").pop();
-      const baseName = currentPage.replace(/EN\.html|\.html/, '');
+      let currentPage = window.location.pathname.split("/").pop();
 
-      if (selectedLang === 'en') {
-        window.location.href = `${baseName}EN.html`;
-      } else {
-        window.location.href = `${baseName}.html`;
+      if (!currentPage || currentPage === "") {
+        currentPage = "indexEN.html";
       }
+
+      const langMap = {
+        "index.html": {
+          ja: "index.html",
+          en: "indexEN.html"
+        },
+        "products.html": {
+          ja: "products.html",
+          en: "productsEN.html"
+        },
+        "aboutus.html": {
+          ja: "aboutus.html",
+          en: "aboutusEN.html"
+        },
+        "contact.html": {
+          ja: "contact.html",
+          en: "contactEN.html"
+        },
+        "indexEN.html": {
+          ja: "index.html",
+          en: "indexEN.html"
+        },
+        "productsEN.html": {
+          ja: "products.html",
+          en: "productsEN.html"
+        },
+        "aboutusEN.html": {
+          ja: "aboutus.html",
+          en: "aboutusEN.html"
+        },
+        "contactEN.html": {
+          ja: "contact.html",
+          en: "contactEN.html"
+        }
+      };
+
+      const targetPage = langMap[currentPage]?.[selectedLang] || "index.html";
+      window.location.href = targetPage;
     });
   </script>
 </body>
